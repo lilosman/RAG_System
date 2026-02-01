@@ -1,11 +1,10 @@
 # 🤖 AI Technical Assistant (Voice-Enabled RAG)
 
 An advanced **Retrieval-Augmented Generation (RAG)** assistant that understands both **Arabic and English**. This system allows users to interact with their private documents through **Text** or **Voice**, ensuring highly accurate and context-specific answers.
+
 ## 📺 Project Demo
-
-
-https://youtu.be/bP3gkUH-N-c
-
+Click the link below to see the assistant in action:
+👉 [Watch Video on YouTube](https://youtu.be/bP3gkUH-N-c)
 
 > "This is not just a story, this is our future" 🚀
 
