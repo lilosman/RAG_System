@@ -23,4 +23,16 @@ An advanced **Retrieval-Augmented Generation (RAG)** assistant that understands 
 ## 🔧 Installation & Setup
 1. Clone the repo:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/your-repo-name.git](https://github.com/YOUR_USERNAME/your-repo-name.git)
+   git clone https://github.com/lilosman/RAG_System.git
+
+# 2. Navigate to the project directory
+cd RAG_System
+
+# 3. Install requirements
+pip install -r requirements.txt
+
+# 4. Create a .env file and add your API Key
+echo "GROQ_API_KEY=your_key_here" > .env
+
+# 5. Run the application
+streamlit run app.py   
