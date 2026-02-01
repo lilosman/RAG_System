@@ -4,7 +4,7 @@ An advanced **Retrieval-Augmented Generation (RAG)** assistant that understands 
 
 ## 📺 Project Demo
 Click the link below to see the assistant in action:
-👉 [Watch Video on YouTube](https://youtu.be/bP3gkUH-N-c)
+👉 [Watch Video on YouTube](https://youtu.be/s_e7xXRxUSc)
 
 > "This is not just a story, this is our future" 🚀
 
