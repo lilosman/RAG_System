@@ -40,9 +40,18 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # API Key
-GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+
+try:
+    GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+except Exception:
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
 if not GROQ_API_KEY:
-    st.error(" اعمل ليهو اضافة GROQ_API_KEY في الإعدادات!")
+    st.error("الرجاء إضافة GROQ_API_KEY في ملف الـ .env أو في الـ Secrets")
+    st.stop()
 # --- Load Models (Cached for Performance) ---
 @st.cache_resource
 def load_all():
@@ -102,14 +111,32 @@ user_query = st.chat_input("Or type your question here...")
 # --- Processing Logic ---
 final_query = None
 
-# 1. If Audio is recorded
-if audio_file:
+# 1. إذا المستخدم كتب نص (بنعطيه الأولوية القصوى)
+if user_query:
+    final_query = user_query
+    # بنصفر حالة الصوت برمجياً عشان ما "يهلوس" بالقديم
+    audio_file = None 
+
+# 2. إذا سجل صوت ومافي نص مكتوب (بشرط يكون في ملف حقيقي)
+elif audio_file:
     with st.spinner("⏳ Transcribing your voice..."):
-        with open("temp.wav", "wb") as f:
-            f.write(audio_file.read())
-        segments, _ = whisper_model.transcribe("temp.wav", beam_size=5)
-        final_query = " ".join([s.text for s in segments])
-        st.sidebar.success(f"🎤 Heard: {final_query}")
+        # قراءة محتوى الملف
+        audio_bytes = audio_file.read()
+        if audio_bytes:
+            with open("temp.wav", "wb") as f:
+                f.write(audio_bytes)
+            
+            # اختر اللغه
+            segments, _ = whisper_model.transcribe("temp.wav", beam_size=5, language="en")
+            final_query = " ".join([s.text for s in segments])
+            
+            
+            if final_query.strip():
+                st.sidebar.success(f"🎤 Heard: {final_query}")
+            
+            # مسح الملف المؤقت فوراً
+            if os.path.exists("temp.wav"):
+                os.remove("temp.wav")
 
 # 2. If Text is typed
 if user_query:
