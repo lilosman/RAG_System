@@ -11,6 +11,8 @@ An advanced **Retrieval-Augmented Generation (RAG)** assistant that understands 
 * **🧠 Precise RAG:** Strictly limited to provided context to prevent hallucinations.
 * **💻 Modern UI:** Clean Streamlit interface with full **RTL (Right-to-Left)** support for Arabic users.
 * **🚀 High Performance:** Uses **Groq API** for ultra-fast LLM responses (Llama-3.3-70b).
+## 📊 Workflow Diagram
+```mermaid
 graph TD
     A[🎙️ Voice Input] -->|Faster-Whisper| B(📝 Text Transcription)
     C[⌨️ Text Input] --> B
