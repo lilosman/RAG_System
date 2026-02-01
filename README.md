@@ -3,9 +3,11 @@
 An advanced **Retrieval-Augmented Generation (RAG)** assistant that understands both **Arabic and English**. This system allows users to interact with their private documents through **Text** or **Voice**, ensuring highly accurate and context-specific answers.
 ## 📺 Project Demo
 
-[![Watch the video](https://img.youtube.com/vi/bP3gkUH-N-c/maxresdefault.jpg)](https://youtu.be/bP3gkUH-N-c)
 
-> **"This is not just a story, this is our future" 🚀 (Click the image to play)**
+https://youtu.be/bP3gkUH-N-c
+
+
+> "This is not just a story, this is our future" 🚀
 
 ## 🚀 Key Features
 * **🎙️ Multimodal Input:** Support for real-time voice recording (STT) and text input.
