@@ -10,16 +10,11 @@ An advanced **Retrieval-Augmented Generation (RAG)** assistant that understands 
 * **💻 Modern UI:** Clean Streamlit interface with full **RTL (Right-to-Left)** support for Arabic users.
 * **🚀 High Performance:** Uses **Groq API** for ultra-fast LLM responses (Llama-3.3-70b).
 
+
 ## 📊 Workflow Diagram
 
-```mermaid
-graph TD
-    A[🎙️ Voice Input] -->|Faster-Whisper| B(📝 Text Transcription)
-    C[⌨️ Text Input] --> B
-    B --> D{🔍 RAG Engine}
-    E[(📚 PDF Documents)] -->|E5 Embeddings| D
-    D --> F[🧠 Groq Llama-3.3]
-    F --> G[✅ Arabic/English Answer]
+![Workflow Diagram](workflow.png)
+
   
 ## 🛠️ Tech Stack
 - **Frontend:** Streamlit
